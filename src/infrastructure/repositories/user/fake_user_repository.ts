@@ -2,10 +2,7 @@ import { User } from '../../../domain/entities/user/user';
 import { UserRepository } from '../../../domain/repositories/user_repository';
 
 export class FakeUserRepository implements UserRepository {
-  private users: User[] = [
-    new User('John Doe', 'john@email.com', '123456', true, '1'),
-    new User('John Doe 2', 'john2@email.com', '1234562', false, '2'),
-  ];
+  private users: User[] = [];
 
   async save(user: User): Promise<User | null> {
     this.users.push(user);

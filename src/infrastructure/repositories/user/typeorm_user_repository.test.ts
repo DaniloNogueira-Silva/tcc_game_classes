@@ -104,4 +104,9 @@ describe('TypeOrmUserRepository', () => {
 
     expect(foundUser).toBeNull();
   });
+
+  it('should be return null if user not found using email', async () => {
+    const user = await userRepository.findByEmail('john@email.com');
+    expect(user).toBeNull();
+  });
 });

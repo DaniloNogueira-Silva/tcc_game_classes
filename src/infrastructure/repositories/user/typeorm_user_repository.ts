@@ -37,8 +37,7 @@ export class TypeOrmUserRepository implements UserRepository {
 
   async findByEmail(email: string): Promise<User | null> {
     const entity = await this.repository.findOne({ where: { email } });
-    const user = entity ? UserMapper.toDomain(entity) : null;
-    return user;
+    return entity ? UserMapper.toDomain(entity) : null;
   }
 
   async update(user: User): Promise<void> {
