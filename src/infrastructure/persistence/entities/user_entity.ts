@@ -1,11 +1,12 @@
-import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { ClassEntity } from './class_entity';
+import { LessonPlanEntity } from './lesson_plan_entity';
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id!: string;
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
   @Column()
   name!: string;
@@ -21,4 +22,10 @@ export class UserEntity {
 
   @OneToMany(() => ClassEntity, (classEntity) => classEntity.teacher)
   classes: ClassEntity[];
+
+  @OneToMany(
+    () => LessonPlanEntity,
+    (lessonPlanEntity) => lessonPlanEntity.teacher,
+  )
+  lessonPlans: LessonPlanEntity[];
 }
