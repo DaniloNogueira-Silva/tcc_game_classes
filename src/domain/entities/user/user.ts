@@ -35,11 +35,11 @@ export class User {
       is_teacher === undefined ||
       !id
     ) {
-      throw new Error('All fields are required to create a user');
+      throw new Error('Todos os campos são obrigatórios para criar um usuário');
     }
 
     if (password.length < 6) {
-      throw new Error('Password must be at least 6 characters');
+      throw new Error('A senha deve ter pelo menos 6 caracteres');
     }
   }
 

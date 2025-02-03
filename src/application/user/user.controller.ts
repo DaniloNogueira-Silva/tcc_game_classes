@@ -48,8 +48,8 @@ export class UserController {
 
   @UseGuards(AuthGuard)
   @Patch('/:id')
-  async update(@Body() user: UpdateUserDto) {
-    return this.userService.update(user);
+  async update(@Body() user: UpdateUserDto, @Param('id') id: string) {
+    return this.userService.update({ ...user, id });
   }
 
   @Post('/auth')
