@@ -5,7 +5,6 @@ import {
 } from '../../../domain/repositories/class_repository';
 import { CreateClassDto } from '../dto/create.class.dto';
 import { Class } from '../../../domain/entities/class/class';
-import { v4 as uuidv4 } from 'uuid';
 import { UpdateClassDto } from '../dto/update.class.dto';
 
 @Injectable()
@@ -16,15 +15,15 @@ export class ClassService {
   ) {}
 
   async save(dto: CreateClassDto): Promise<Class | null> {
+    const date = new Date(dto.due_date);
     const classRoom = new Class(
-      uuidv4(),
-      dto.name,
       dto.teacher_id,
-      dto.due_date,
+      dto.name,
+      date,
       dto.url,
       dto.points,
       dto.type,
-      dto.extra_lesson_id,
+      dto?.extra_lesson_id,
     );
     return this.classRepository.save(classRoom);
   }
@@ -43,14 +42,14 @@ export class ClassService {
 
   async update(dto: UpdateClassDto): Promise<void> {
     const classRoom = new Class(
-      dto.id,
-      dto.name,
       dto.teacher_id,
+      dto.name,
       dto.due_date,
       dto.url,
       dto.points,
       dto.type,
       dto.extra_lesson_id,
+      dto.id
     );
     await this.classRepository.update(classRoom);
   }

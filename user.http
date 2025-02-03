@@ -1,10 +1,9 @@
 POST http://localhost:3000/user
 content-type: application/json
-Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU2NjY3OTliLWIwZTEtNDJmNS04MTI5LTVmYzViYjNlM2EyNCIsInVzZXJuYW1lIjoic2FtcGxlMSIsImVtYWlsIjoic2FtcGxlMUBlbWFpbC5jb20iLCJpc190ZWFjaGVyIjp0cnVlLCJpYXQiOjE3Mzc2NzI1NjksImV4cCI6MTczNzY3OTc2OX0.Z_4zreOxSej_42dezcCABWHvSCjy_HhRJL1MWzcJXcc'
 
 {
-    "name": "sample1",
-    "email": "sample1@email.com",
+    "name": "danilo",
+    "email": "danilo@email.com",
     "password": "123456",
     "is_teacher": true
 }
@@ -15,7 +14,7 @@ POST http://localhost:3000/user/auth
 content-type: application/json
 
 {
-    "email": "sample1@email.com",
+    "email": "danilo@email.com",
     "password": "123456"
 }
 

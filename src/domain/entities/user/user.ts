@@ -1,5 +1,5 @@
 export class User {
-  private readonly id: string;
+  private id: string;
   private readonly name: string;
   private readonly email: string;
   private readonly password: string;
@@ -10,14 +10,17 @@ export class User {
     email: string,
     password: string,
     is_teacher: boolean,
-    id: string,
+    id?: string,
   ) {
-    this.validateFields(name, email, password, is_teacher, id);
-    this.id = id;
+    this.validateFields(name, email, password, is_teacher);
     this.name = name;
     this.email = email;
     this.password = password;
     this.is_teacher = is_teacher;
+
+    if (id) {
+      this.id = id;
+    }
   }
 
   validateFields(
@@ -25,15 +28,13 @@ export class User {
     email: string,
     password: string,
     is_teacher: boolean,
-    id: string,
   ): void {
     if (
       !name ||
       !email ||
       !password ||
       is_teacher === null ||
-      is_teacher === undefined ||
-      !id
+      is_teacher === undefined
     ) {
       throw new Error('Todos os campos são obrigatórios para criar um usuário');
     }
@@ -61,5 +62,9 @@ export class User {
 
   toGetId(): string {
     return this.id;
+  }
+
+  saveId(id: string) {
+    this.id = id;
   }
 }

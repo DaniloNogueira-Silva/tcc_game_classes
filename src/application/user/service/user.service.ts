@@ -27,7 +27,7 @@ export class UserService {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(dto.password, salt);
 
-    const user = new User(dto.name, dto.email, hash, dto.is_teacher, uuidv4());
+    const user = new User(dto.name, dto.email, hash, dto.is_teacher);
 
     return this.userRepository.save(user);
   }
@@ -47,7 +47,6 @@ export class UserService {
       dto.email,
       dto.password,
       dto.is_teacher,
-      dto.id,
     );
 
     await this.userRepository.update(user);
@@ -74,7 +73,7 @@ export class UserService {
   async login(email: string, password: string): Promise<Object> {
     const user = await this.findByEmail(email);
     if (!user) {
-      throw new Error('User not found');
+      throw new Error('Usuário não encontrado');
     }
 
     const isPasswordValid = await bcrypt.compare(

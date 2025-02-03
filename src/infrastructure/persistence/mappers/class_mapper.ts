@@ -1,10 +1,10 @@
 import { Class } from '../../../domain/entities/class/class';
 import { ClassEntity } from '../entities/class_entity';
+import { UserEntity } from '../entities/user_entity';
 
 export class ClassMapper {
   static toDomain(entity: ClassEntity): Class {
     return new Class(
-      entity.id,
       entity.teacher.id,
       entity.name,
       entity.due_date,
@@ -12,19 +12,20 @@ export class ClassMapper {
       entity.points,
       entity.type,
       entity.extra_lesson_id,
+      entity.id
     );
   }
 
   static toPersistence(domain: Class): ClassEntity {
     const entity = new ClassEntity();
-    entity.id = domain.toGetId();
-    entity.teacher.id = domain.toGetTeacherId();
+    entity.teacher = { id: domain.toGetTeacherId() } as UserEntity;
     entity.name = domain.toGetName();
     entity.due_date = domain.toGetDueDate();
     entity.url = domain.toGetUrl();
     entity.points = domain.toGetPoints();
     entity.type = domain.toGetType();
     entity.extra_lesson_id = domain.toGetExtraLessonId();
+    
     return entity;
   }
 }

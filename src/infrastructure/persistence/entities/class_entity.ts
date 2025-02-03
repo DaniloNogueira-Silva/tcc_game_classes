@@ -1,21 +1,15 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 import { UserEntity } from './user_entity';
 
 @Entity('classes')
 export class ClassEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
-  @ManyToOne(() => UserEntity, (user) => user.classes, { eager: true }) // Corrigido
-  @JoinColumn({ name: 'teacher_id' }) // Define explicitamente a FK no banco
-  teacher: UserEntity; // Deve ser um objeto UserEntity, não string
+  @ManyToOne(() => UserEntity, (user) => user.classes, { eager: true })
+  @JoinColumn({ name: 'teacher_id' }) 
+  teacher: UserEntity;
 
   @Column()
   name: string;

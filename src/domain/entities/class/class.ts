@@ -1,5 +1,5 @@
 export class Class {
-  private readonly id: string;
+  private id: string;
   private readonly teacher_id: string;
   private readonly name: string;
   private readonly due_date: Date;
@@ -9,17 +9,16 @@ export class Class {
   private readonly extra_lesson_id?: string;
 
   constructor(
-    id: string,
     teacher_id: string,
     name: string,
     due_date: Date,
     url: string,
     points: number,
     type: string,
-    extra_lesson_id: string,
+    extra_lesson_id?: string | null,
+    id?: string,
   ) {
     this.validateFields(
-      id,
       teacher_id,
       name,
       due_date,
@@ -27,7 +26,6 @@ export class Class {
       points,
       type,
     );
-    this.id = id;
     this.teacher_id = teacher_id;
     this.name = name;
     this.due_date = due_date;
@@ -35,10 +33,13 @@ export class Class {
     this.points = points;
     this.type = type;
     this.extra_lesson_id = extra_lesson_id;
+
+    if (id) {
+      this.id = id;
+    }
   }
 
   validateFields(
-    id: string,
     teacher_id: string,
     name: string,
     due_date: Date,
@@ -47,7 +48,6 @@ export class Class {
     type: string,
   ): void {
     if (
-      !id ||
       !teacher_id ||
       !name ||
       !due_date ||
@@ -93,5 +93,8 @@ export class Class {
 
   toGetExtraLessonId(): string | null {
     return this.extra_lesson_id;
+  }
+  saveId(id: string) {
+    this.id = id;
   }
 }

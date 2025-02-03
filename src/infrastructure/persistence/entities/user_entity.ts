@@ -1,11 +1,11 @@
-import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 import { ClassEntity } from './class_entity';
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryColumn()
-  id!: string;
+  @PrimaryGeneratedColumn("uuid")
+  id!: string;
 
   @Column()
   name!: string;
@@ -20,5 +20,5 @@ export class UserEntity {
   is_teacher!: boolean;
 
   @OneToMany(() => ClassEntity, (classEntity) => classEntity.teacher)
-  classes: ClassEntity[]; // Definindo relacionamento bidirecional
+  classes: ClassEntity[];
 }

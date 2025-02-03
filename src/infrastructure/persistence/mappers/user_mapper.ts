@@ -18,8 +18,6 @@ export class UserMapper {
     entity.email = domain.toGetEmail();
     entity.password = domain.toGetPassword();
     entity.is_teacher = domain.toGetIsTeacher();
-    entity.id = domain.toGetId();
-
     return entity;
   }
 }
