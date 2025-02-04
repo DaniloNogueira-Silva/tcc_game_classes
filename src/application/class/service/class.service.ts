@@ -18,6 +18,7 @@ export class ClassService {
     const date = new Date(dto.due_date);
     const classRoom = new Class(
       dto.teacher_id,
+      dto.lesson_plan_id,
       dto.name,
       date,
       dto.url,
@@ -43,13 +44,14 @@ export class ClassService {
   async update(dto: UpdateClassDto): Promise<void> {
     const classRoom = new Class(
       dto.teacher_id,
+      dto.lesson_plan_id,
       dto.name,
       dto.due_date,
       dto.url,
       dto.points,
       dto.type,
       dto.extra_lesson_id,
-      dto.id
+      dto.id,
     );
     await this.classRepository.update(classRoom);
   }

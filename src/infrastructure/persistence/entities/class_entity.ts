@@ -1,6 +1,13 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { UserEntity } from './user_entity';
+import { LessonPlanEntity } from './lesson_plan_entity';
 
 @Entity('classes')
 export class ClassEntity {
@@ -8,8 +15,14 @@ export class ClassEntity {
   id!: string;
 
   @ManyToOne(() => UserEntity, (user) => user.classes, { eager: true })
-  @JoinColumn({ name: 'teacher_id' }) 
+  @JoinColumn({ name: 'teacher_id' })
   teacher: UserEntity;
+
+  @ManyToOne(() => LessonPlanEntity, (lessonPlan) => lessonPlan.classes, {
+    nullable: false,
+  })
+  @JoinColumn({ name: 'lesson_plan_id' })
+  lessonPlan: LessonPlanEntity;
 
   @Column()
   name: string;

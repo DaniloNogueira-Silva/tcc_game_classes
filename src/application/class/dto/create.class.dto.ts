@@ -6,4 +6,5 @@ export interface CreateClassDto {
     type: string;
     extra_lesson_id: string;
     teacher_id: string;
+    lesson_plan_id: string;
 }

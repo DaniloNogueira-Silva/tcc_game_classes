@@ -1,15 +1,16 @@
 
 POST http://localhost:3000/class
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4NjA5OTgyLCJleHAiOjE3Mzg2MTcxODJ9.4GhYKC-3o-vS6eTNBpLBHlzcg1kwvLPNIEe-SyN76fA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4Njk2NDAzLCJleHAiOjE3Mzg3MDM2MDN9.cLm8eRoNz_dNDjIuDFXstwpVBowX7ecHagCEkjhaYq8
 
 {
-    "name": "Fase 1",
+    "name": "Fase 2",
     "due_date": "2025-02-04",
     "url": "https://link.com",
     "points": 100,
     "type": "LEITURA",
     "teacher_id": "712328f5-4a1a-4865-9f95-4d27681a02b8",
+    "lesson_plan_id": "641d14c5-7f8d-4b1c-a98e-dbb9c2dfc3ee",
     "extra_lesson_id": null
 }
 
@@ -17,13 +18,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1L
 
 GET http://localhost:3000/class
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4NjA5OTgyLCJleHAiOjE3Mzg2MTcxODJ9.4GhYKC-3o-vS6eTNBpLBHlzcg1kwvLPNIEe-SyN76fA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4Njk2NDAzLCJleHAiOjE3Mzg3MDM2MDN9.cLm8eRoNz_dNDjIuDFXstwpVBowX7ecHagCEkjhaYq8
 
 
 ###
 
-GET http://localhost:3000/class/bb3e3fa9-0087-4597-92af-0b06ad0ae633
+GET http://localhost:3000/class/f621c5ad-d2b3-4d20-ad2c-455ebdb77966
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0M2IxNDFkLTZjZjQtNDFlMy05NzEyLWJmMDdmNThjYzgwMyIsInVzZXJuYW1lIjoic2FtcGxlMSIsImVtYWlsIjoic2FtcGxlMUBlbWFpbC5jb20iLCJpc190ZWFjaGVyIjp0cnVlLCJpYXQiOjE3Mzg2MDYzNzMsImV4cCI6MTczODYxMzU3M30.oTR9Cb7-6faKKZAgcDsAwxtvw1iBsk4CtXcUb9dtSCM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4Njk2NDAzLCJleHAiOjE3Mzg3MDM2MDN9.cLm8eRoNz_dNDjIuDFXstwpVBowX7ecHagCEkjhaYq8
 
 ###

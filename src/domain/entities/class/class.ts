@@ -1,6 +1,7 @@
 export class Class {
   private id: string;
   private readonly teacher_id: string;
+  private readonly lesson_plan_id: string;
   private readonly name: string;
   private readonly due_date: Date;
   private readonly url: string;
@@ -10,6 +11,7 @@ export class Class {
 
   constructor(
     teacher_id: string,
+    lesson_plan_id: string,
     name: string,
     due_date: Date,
     url: string,
@@ -20,6 +22,7 @@ export class Class {
   ) {
     this.validateFields(
       teacher_id,
+      lesson_plan_id,
       name,
       due_date,
       url,
@@ -27,6 +30,7 @@ export class Class {
       type,
     );
     this.teacher_id = teacher_id;
+    this.lesson_plan_id = lesson_plan_id;
     this.name = name;
     this.due_date = due_date;
     this.url = url;
@@ -41,6 +45,7 @@ export class Class {
 
   validateFields(
     teacher_id: string,
+    lesson_plan_id: string,
     name: string,
     due_date: Date,
     url: string,
@@ -49,6 +54,7 @@ export class Class {
   ): void {
     if (
       !teacher_id ||
+      !lesson_plan_id ||
       !name ||
       !due_date ||
       !url ||
@@ -73,6 +79,10 @@ export class Class {
 
   toGetTeacherId(): string {
     return this.teacher_id;
+  }
+
+  toGetLessonPlanId(): string {
+    return this.lesson_plan_id;
   }
 
   toGetDueDate(): Date {

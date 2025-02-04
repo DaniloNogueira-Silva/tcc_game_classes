@@ -23,7 +23,10 @@ export class TypeOrmClassRepository implements ClassRepository {
   }
 
   async findById(id: string): Promise<Class | null> {
-    const entity = await this.repository.findOne({ where: { id } });
+    const entity = await this.repository.findOne({
+      where: { id },
+      relations: ['lessonPlan'],
+    });
     const classRoom = entity ? ClassMapper.toDomain(entity) : null;
     return classRoom;
   }
@@ -40,7 +43,9 @@ export class TypeOrmClassRepository implements ClassRepository {
   }
 
   async findAll(): Promise<Class[] | null> {
-    const entities = await this.repository.find();
+    const entities = await this.repository.find({
+      relations: ['lessonPlan'],
+    });
     const classRooms = entities.map((entity) => ClassMapper.toDomain(entity));
     return classRooms;
   }

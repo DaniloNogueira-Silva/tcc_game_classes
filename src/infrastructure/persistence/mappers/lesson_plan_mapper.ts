@@ -8,7 +8,7 @@ export class LessonPlanMapper {
       entity.teacher.id,
       entity.name,
       entity.theme,
-      entity.id
+      entity.id,
     );
   }
 
