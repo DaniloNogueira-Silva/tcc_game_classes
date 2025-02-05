@@ -8,6 +8,8 @@ import { ExtraLessonEntity } from './infrastructure/persistence/entities/extra_l
 import { ExtraLessonModule } from './application/extra_lesson/extra_lesson.module';
 import { LessonPlanEntity } from './infrastructure/persistence/entities/lesson_plan_entity';
 import { LessonPlanModule } from './application/lesson_plan/lesson_plan.module';
+import { UserMapProgressEntity } from './infrastructure/persistence/entities/user_map_progress_entity';
+import { UserMapProgressModule } from './application/user_map_progress/user_progress.module';
 import { Module } from '@nestjs/common';
 import { QuestionModule } from './application/question/question.module';
 import { QuestionsEntity } from './infrastructure/persistence/entities/questions_entity';
@@ -25,7 +27,14 @@ dotenv.config();
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       port: 5432,
-      entities: [UserEntity, ClassEntity, LessonPlanEntity, ExtraLessonEntity, QuestionsEntity],
+      entities: [
+        UserEntity,
+        ClassEntity,
+        LessonPlanEntity,
+        ExtraLessonEntity,
+        QuestionsEntity,
+        UserMapProgressEntity,
+      ],
       synchronize: true,
       ssl: {
         rejectUnauthorized: false,
@@ -40,6 +49,7 @@ dotenv.config();
     LessonPlanModule,
     ExtraLessonModule,
     QuestionModule,
+    UserMapProgressModule,
   ],
 })
 export class AppModule {}

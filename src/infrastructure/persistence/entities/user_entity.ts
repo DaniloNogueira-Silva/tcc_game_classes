@@ -2,6 +2,7 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 import { ClassEntity } from './class_entity';
 import { LessonPlanEntity } from './lesson_plan_entity';
+import { UserMapProgressEntity } from './user_map_progress_entity';
 
 @Entity('users')
 export class UserEntity {
@@ -28,4 +29,10 @@ export class UserEntity {
     (lessonPlanEntity) => lessonPlanEntity.teacher,
   )
   lessonPlans: LessonPlanEntity[];
+
+  @OneToMany(
+    () => UserMapProgressEntity,
+    (UserMapProgressEntity) => UserMapProgressEntity.student,
+  )
+  progress: UserMapProgressEntity[];
 }
