@@ -23,21 +23,27 @@ export class TypeOrmUserRepository implements UserRepository {
     return UserMapper.toDomain(savedEntity);
   }
 
-  async findById(id: string): Promise<User | null> {
-    const entity = await this.repository.findOne({ where: { id } });
-    const user = entity ? UserMapper.toDomain(entity) : null;
-    return user;
+  async findById(id: string): Promise<UserEntity | null> {
+    const entity = await this.repository.findOne({
+      where: { id },
+      relations: ['lessonPlans'],
+    });
+    return entity;
   }
 
-  async findAll(): Promise<User[] | null> {
-    const entities = await this.repository.find();
-    const users = entities.map((entity) => UserMapper.toDomain(entity));
-    return users;
+  async findAll(): Promise<UserEntity[] | null> {
+    const entities = await this.repository.find({
+      relations: ['lessonPlans'],
+    });
+    return entities;
   }
 
-  async findByEmail(email: string): Promise<User | null> {
-    const entity = await this.repository.findOne({ where: { email } });
-    return entity ? UserMapper.toDomain(entity) : null;
+  async findByEmail(email: string): Promise<UserEntity | null> {
+    const entity = await this.repository.findOne({
+      where: { email },
+      relations: ['lessonPlans'],
+    });
+    return entity;
   }
 
   async update(user: User): Promise<void> {

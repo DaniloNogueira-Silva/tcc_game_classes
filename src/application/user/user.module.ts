@@ -1,6 +1,4 @@
 import { AuthModule } from '../auth/auth.module';
-import { ConfigService } from '@nestjs/config';
-import { JwtService } from '@nestjs/jwt';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmUserRepository } from '../../infrastructure/repositories/user/typeorm_user_repository';

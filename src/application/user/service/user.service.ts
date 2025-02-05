@@ -9,6 +9,7 @@ import {
 import { v4 as uuidv4 } from 'uuid';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { UserEntity } from '../../../infrastructure/persistence/entities/user_entity';
 
 @Injectable()
 export class UserService {
@@ -32,7 +33,7 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  async findById(id: string): Promise<User | null> {
+  async findById(id: string): Promise<UserEntity | null> {
     return this.userRepository.findById(id);
   }
 
@@ -42,12 +43,7 @@ export class UserService {
       throw new Error('User not found');
     }
 
-    const user = new User(
-      dto.name,
-      dto.email,
-      dto.password,
-      dto.is_teacher,
-    );
+    const user = new User(dto.name, dto.email, dto.password, dto.is_teacher);
 
     await this.userRepository.update(user);
   }
@@ -56,11 +52,11 @@ export class UserService {
     await this.userRepository.delete(id);
   }
 
-  async findAll(): Promise<User[] | null> {
+  async findAll(): Promise<UserEntity[] | null> {
     return this.userRepository.findAll();
   }
 
-  async findByEmail(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<UserEntity | null> {
     const foundUser = await this.userRepository.findByEmail(email);
 
     if (!foundUser) {
@@ -76,19 +72,16 @@ export class UserService {
       throw new Error('Usuário não encontrado');
     }
 
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      user.toGetPassword(),
-    );
+    const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       throw new Error('Invalid password');
     }
 
     const payload = {
-      id: user.toGetId(),
-      username: user.toGetName(),
-      email: user.toGetEmail(),
-      is_teacher: user.toGetIsTeacher(),
+      id: user.id,
+      username: user.name,
+      email: user.email,
+      is_teacher: user.is_teacher,
     };
     return this.jwtService.sign(payload);
   }

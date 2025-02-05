@@ -23,10 +23,12 @@ export class TypeOrmLessonPlanRepository implements LessonPlanRepository {
     return LessonPlanMapper.toDomain(savedEntity);
   }
 
-  async findById(id: string): Promise<LessonPlan | null> {
-    const entity = await this.repository.findOne({ where: { id } });
-    const lessonPlans = entity ? LessonPlanMapper.toDomain(entity) : null;
-    return lessonPlans;
+  async findById(id: string): Promise<LessonPlanEntity | null> {
+    const entity = await this.repository.findOne({
+      where: { id },
+      relations: ['classes'],
+    });
+    return entity;
   }
 
   async update(lessonPlans: LessonPlan): Promise<void> {
@@ -40,11 +42,8 @@ export class TypeOrmLessonPlanRepository implements LessonPlanRepository {
     return;
   }
 
-  async findAll(): Promise<LessonPlan[] | null> {
-    const entities = await this.repository.find();
-    const lessonPlans = entities.map((entity) =>
-      LessonPlanMapper.toDomain(entity),
-    );
-    return lessonPlans;
+  async findAll(): Promise<LessonPlanEntity[] | null> {
+    const entities = await this.repository.find({ relations: ['classes'] });
+    return entities;
   }
 }
