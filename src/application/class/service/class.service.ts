@@ -6,6 +6,7 @@ import {
 import { CreateClassDto } from '../dto/create.class.dto';
 import { Class } from '../../../domain/entities/class/class';
 import { UpdateClassDto } from '../dto/update.class.dto';
+import { ClassEntity } from '../../../infrastructure/persistence/entities/class_entity';
 
 @Injectable()
 export class ClassService {
@@ -24,16 +25,15 @@ export class ClassService {
       dto.url,
       dto.points,
       dto.type,
-      dto?.extra_lesson_id,
     );
     return this.classRepository.save(classRoom);
   }
 
-  async findAll(): Promise<Class[] | null> {
+  async findAll(): Promise<ClassEntity[] | null> {
     return this.classRepository.findAll();
   }
 
-  async findById(id: string): Promise<Class | null> {
+  async findById(id: string): Promise<ClassEntity | null> {
     return this.classRepository.findById(id);
   }
 
@@ -50,7 +50,6 @@ export class ClassService {
       dto.url,
       dto.points,
       dto.type,
-      dto.extra_lesson_id,
       dto.id,
     );
     await this.classRepository.update(classRoom);

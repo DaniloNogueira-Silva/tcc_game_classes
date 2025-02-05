@@ -7,7 +7,6 @@ export class Class {
   private readonly url: string;
   private readonly points: number;
   private readonly type: string;
-  private readonly extra_lesson_id?: string;
 
   constructor(
     teacher_id: string,
@@ -17,7 +16,6 @@ export class Class {
     url: string,
     points: number,
     type: string,
-    extra_lesson_id?: string | null,
     id?: string,
   ) {
     this.validateFields(
@@ -36,7 +34,6 @@ export class Class {
     this.url = url;
     this.points = points;
     this.type = type;
-    this.extra_lesson_id = extra_lesson_id;
 
     if (id) {
       this.id = id;
@@ -101,9 +98,6 @@ export class Class {
     return this.type;
   }
 
-  toGetExtraLessonId(): string | null {
-    return this.extra_lesson_id;
-  }
   saveId(id: string) {
     this.id = id;
   }

@@ -14,7 +14,7 @@ export class ExtraLessonService {
   ) {}
 
   async save(dto: CreateExtraLessonDto): Promise<ExtraLesson | null> {
-    const extraLesson = new ExtraLesson(dto.link, dto.additional_text);
+    const extraLesson = new ExtraLesson(dto.class_id, dto.link, dto.additional_text);
     return this.extraLessonRepository.save(extraLesson);
   }
 
@@ -31,7 +31,7 @@ export class ExtraLessonService {
   }
 
   async update(dto: UpdateExtraLessonDto): Promise<void> {
-    const extraLesson = new ExtraLesson(dto.link, dto.additional_text, dto.id);
+    const extraLesson = new ExtraLesson(dto.class_id, dto.link, dto.additional_text, dto.id);
     await this.extraLessonRepository.update(extraLesson);
   }
 }

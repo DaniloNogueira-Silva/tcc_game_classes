@@ -13,7 +13,6 @@ export class ClassMapper {
       entity.url,
       entity.points,
       entity.type,
-      entity.extra_lesson_id,
       entity.id,
     );
   }
@@ -27,7 +26,6 @@ export class ClassMapper {
     entity.url = domain.toGetUrl();
     entity.points = domain.toGetPoints();
     entity.type = domain.toGetType();
-    entity.extra_lesson_id = domain.toGetExtraLessonId();
 
     return entity;
   }

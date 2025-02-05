@@ -3,6 +3,7 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4NzEyNjI2LCJleHAiOjE3Mzg3MTk4MjZ9.KjpSWZmT0Glrh4neUy_6gkHqMQ1LSFQT3UBmZuK51ag
 
 {
+    "class_id": "1aa27005-61fb-4a51-9704-f1fc8379c115",
     "link": "https://www.youtube.com/watch?v=3FQ5xW_JRmw",
     "additional_text": "Assista o conteúdo do vídeo nessa aula"
 }

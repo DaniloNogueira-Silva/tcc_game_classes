@@ -3,11 +3,13 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-import { UserEntity } from './user_entity';
+import { ExtraLessonEntity } from './extra_lesson_entity';
 import { LessonPlanEntity } from './lesson_plan_entity';
+import { UserEntity } from './user_entity';
 
 @Entity('classes')
 export class ClassEntity {
@@ -39,6 +41,9 @@ export class ClassEntity {
   @Column()
   type: string;
 
-  @Column({ nullable: true })
-  extra_lesson_id: string;
+  @OneToMany(
+    () => ExtraLessonEntity,
+    (extraLessonPlanEntity) => extraLessonPlanEntity.class,
+  )
+  extraLessons: ExtraLessonEntity[];
 }
