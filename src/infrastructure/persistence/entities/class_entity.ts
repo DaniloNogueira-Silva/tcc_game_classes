@@ -9,6 +9,7 @@ import {
 
 import { ExtraLessonEntity } from './extra_lesson_entity';
 import { LessonPlanEntity } from './lesson_plan_entity';
+import { UserClassProgressEntity } from './user_class_progress_entity';
 import { UserEntity } from './user_entity';
 
 @Entity('classes')
@@ -46,4 +47,10 @@ export class ClassEntity {
     (extraLessonPlanEntity) => extraLessonPlanEntity.class,
   )
   extraLessons: ExtraLessonEntity[];
+
+  @OneToMany(
+    () => UserClassProgressEntity,
+    (userClassProgressEntity) => userClassProgressEntity.class,
+  )
+  classProgress: UserClassProgressEntity[];
 }
