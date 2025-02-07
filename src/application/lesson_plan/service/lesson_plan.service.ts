@@ -34,11 +34,17 @@ export class LessonPlanService {
   }
 
   async update(dto: UpdateLessonPlanDto): Promise<void> {
+    const found = await this.lessonPlanRepository.findById(dto.id);
+
+    if (!found) {
+      throw new Error('Plano de aula não encontrado');
+    }
+
     const lessonPLan = new LessonPlan(
       dto.id,
-      dto.name,
-      dto.teacher_id,
-      dto.theme,
+      dto.name ?? found.name,
+      found.teacher.id,
+      dto.theme ?? found.theme,
     );
     await this.lessonPlanRepository.update(lessonPLan);
   }
