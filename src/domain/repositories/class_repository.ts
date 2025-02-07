@@ -8,5 +8,5 @@ export interface ClassRepository {
   findById(id: string): Promise<ClassEntity | null>;
   update(classRoom: Class): Promise<void>;
   delete(id: string): Promise<void>;
-  findAll(): Promise<ClassEntity[] | null>;
+  findAll(userId: string): Promise<ClassEntity[] | null>;
 }

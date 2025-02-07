@@ -7,6 +7,7 @@ import { CreateLessonPlanDto } from '../dto/create.lesson_plan.dto';
 import { LessonPlan } from '../../../domain/entities/lesson_plan/lesson_plan';
 import { UpdateLessonPlanDto } from '../dto/update.lesson_plan.dto';
 import { LessonPlanEntity } from '../../../infrastructure/persistence/entities/lesson_plan_entity';
+import { IDecorator } from '../../auth/decorator.interface';
 
 @Injectable()
 export class LessonPlanService {
@@ -20,8 +21,8 @@ export class LessonPlanService {
     return this.lessonPlanRepository.save(lessonPLan);
   }
 
-  async findAll(): Promise<LessonPlanEntity[] | null> {
-    return this.lessonPlanRepository.findAll();
+  async findAll(user: IDecorator): Promise<LessonPlanEntity[] | null> {
+    return this.lessonPlanRepository.findAll(user.id);
   }
 
   async findById(id: string): Promise<LessonPlanEntity | null> {

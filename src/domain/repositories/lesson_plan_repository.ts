@@ -8,5 +8,5 @@ export interface LessonPlanRepository {
   findById(id: string): Promise<LessonPlanEntity | null>;
   update(lessonPlan: LessonPlan): Promise<void>;
   delete(id: string): Promise<void>;
-  findAll(): Promise<LessonPlanEntity[] | null>;
+  findAll(userId: string): Promise<LessonPlanEntity[] | null>;
 }

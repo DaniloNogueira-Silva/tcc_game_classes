@@ -1,20 +1,19 @@
 
 POST http://localhost:3000/lessonPlan
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4Njk2NDAzLCJleHAiOjE3Mzg3MDM2MDN9.cLm8eRoNz_dNDjIuDFXstwpVBowX7ecHagCEkjhaYq8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImMyYzBhY2ZhLWJjNmMtNDk2NS04ODliLWUxYTk0YTg1OWY5YSIsInVzZXJuYW1lIjoicHJvZmVzc29yIiwiZW1haWwiOiJwcm9mZXNzb3JAZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4ODg5NjQ2LCJleHAiOjE3Mzg4OTY4NDZ9.qRjKGg-0FnEkUIt8QolflSlj9fCrvd_HAO29lGm7rJI
 
 {
-    "teacher_id": "712328f5-4a1a-4865-9f95-4d27681a02b8",
-    "name": "Português",
-    "theme": "Conjugação dos Verbos"
+    "teacher_id": "c2c0acfa-bc6c-4965-889b-e1a94a859f9a",
+    "name": "Química",
+    "theme": "Ligação Iónica"
 }
 
 ###
 
 GET http://localhost:3000/lessonPlan
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4Njk2NDAzLCJleHAiOjE3Mzg3MDM2MDN9.cLm8eRoNz_dNDjIuDFXstwpVBowX7ecHagCEkjhaYq8
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxMjMyOGY1LTRhMWEtNDg2NS05Zjk1LTRkMjc2ODFhMDJiOCIsInVzZXJuYW1lIjoiZGFuaWxvIiwiZW1haWwiOiJkYW5pbG9AZW1haWwuY29tIiwiaXNfdGVhY2hlciI6dHJ1ZSwiaWF0IjoxNzM4ODg5MTU2LCJleHAiOjE3Mzg4OTYzNTZ9.W-R0_O7qkjkirFm1HSgOI2zlumB8AHMRcQ3WyTDa1yo
 
 ###
 

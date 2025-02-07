@@ -41,9 +41,10 @@ export class TypeOrmClassRepository implements ClassRepository {
     return;
   }
 
-  async findAll(): Promise<ClassEntity[] | null> {
+  async findAll(userId: string): Promise<ClassEntity[] | null> {
     const entities = await this.repository.find({
       relations: ['extraLessons'],
+      where: { teacher: { id: userId } },
     });
     return entities;
   }

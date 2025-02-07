@@ -7,6 +7,7 @@ import { CreateClassDto } from '../dto/create.class.dto';
 import { Class } from '../../../domain/entities/class/class';
 import { UpdateClassDto } from '../dto/update.class.dto';
 import { ClassEntity } from '../../../infrastructure/persistence/entities/class_entity';
+import { IDecorator } from '../../auth/decorator.interface';
 
 @Injectable()
 export class ClassService {
@@ -29,8 +30,8 @@ export class ClassService {
     return this.classRepository.save(classRoom);
   }
 
-  async findAll(): Promise<ClassEntity[] | null> {
-    return this.classRepository.findAll();
+  async findAll(user: IDecorator): Promise<ClassEntity[] | null> {
+    return this.classRepository.findAll(user.id);
   }
 
   async findById(id: string): Promise<ClassEntity | null> {
